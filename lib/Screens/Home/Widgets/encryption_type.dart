@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../Manager/Bloc/cipher_bloc.dart';
 import '../../../Manager/Bloc/cipher_event.dart';
 import '../../../Manager/Bloc/cipher_state.dart';
+import '../../../l10n/l10n.dart';
 
 class EncryptionType extends StatelessWidget {
   const EncryptionType({Key? key}) : super(key: key);
@@ -18,9 +19,9 @@ class EncryptionType extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Encryption Type:',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                Text(
+                  context.l10n.encryptionType,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 const SizedBox(height: 8),
                 Row(
@@ -28,11 +29,14 @@ class EncryptionType extends StatelessWidget {
                     Expanded(
                       child: RadioListTile<CipherType>(
                         activeColor: Colors.black,
-                        title: const Text(' Caesar' ,style: TextStyle(
-                          fontFamily: 'Cairo',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),),
+                        title: Text(
+                          context.l10n.caesar,
+                          style: const TextStyle(
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
                         value: CipherType.caesar,
                         groupValue: state.cipherType,
                         onChanged: (value) {
@@ -45,11 +49,14 @@ class EncryptionType extends StatelessWidget {
                     Expanded(
                       child: RadioListTile<CipherType>(
                         activeColor: Colors.black,
-                        title: const Text(' Vigenere' , style: TextStyle(
-                          fontFamily: 'Cairo',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),),
+                        title: Text(
+                          context.l10n.vigenere,
+                          style: const TextStyle(
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
                         value: CipherType.vigenere,
                         groupValue: state.cipherType,
                         onChanged: (value) {

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../Manager/Bloc/cipher_bloc.dart';
 import '../../../Manager/Bloc/cipher_event.dart';
 import '../../../Manager/Bloc/cipher_state.dart';
+import '../../../l10n/l10n.dart';
 
 class EncryptionSettings extends StatelessWidget {
   const EncryptionSettings({Key? key}) : super(key: key);
@@ -18,15 +19,15 @@ class EncryptionSettings extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Encryption Settings:',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                Text(
+                  context.l10n.encryptionSettings,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 const SizedBox(height: 16),
                 if (state.cipherType == CipherType.caesar) ...[
                   Text(
-                    'Shift: ${state.shift}',
-                    style: TextStyle(
+                    context.l10n.shift(state.shift),
+                    style: const TextStyle(
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -48,15 +49,16 @@ class EncryptionSettings extends StatelessWidget {
                 ] else ...[
                   TextField(
                     controller: TextEditingController(text: state.key),
-                    decoration: const InputDecoration(
-                      labelText: 'Key',
-                      labelStyle: TextStyle(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      labelText: context.l10n.key,
+                      labelStyle: const TextStyle(
                         fontFamily: 'Cairo',
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
-                      hintText: 'Enter key (e.g., "KEYWORD")',
-                      border: OutlineInputBorder(),
+                      hintText: context.l10n.enterKey,
+                      border: const OutlineInputBorder(),
                     ),
                     onChanged: (value) {
                       context.read<CipherBloc>().add(KeyChanged(value));

@@ -1,0 +1,26 @@
+{
+  "@@locale": "en",
+  "appTitle": "Cipher App",
+  "encryptionType": "Encryption Type:",
+  "encryptionSettings": "Encryption Settings:",
+  "caesar": "Caesar",
+  "vigenere": "Vigenere",
+  "shift": "Shift: {shift}",
+  "@shift": {
+    "placeholders": {
+      "shift": {
+        "type": "int"
+      }
+    }
+  },
+  "key": "Key",
+  "enterKey": "Enter key (e.g., \"KEYWORD\")",
+  "enterText": "Enter Text:",
+  "writeTextHere": "Write your text here",
+  "encrypt": "Encrypt",
+  "decrypt": "Decrypt",
+  "output": "Output",
+  "outputDisplayText": "This is where the output will be displayed.",
+  "copy": "Copy",
+  "copiedToClipboard": "Successfully copied to clipboard!"
+}

@@ -1,5 +1,5 @@
 name: cipher
-description: "A new Flutter project."
+description: "Encrypt and Decrypt your data with AES algorithm"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -30,12 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
   flutter_bloc: ^9.1.0
-  equatable: ^2.0.7
+  # Add these new dependencies
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.19.0
+  shared_preferences: ^2.5.3
+  provider: ^6.1.5
+
 
 dev_dependencies:
   flutter_test:

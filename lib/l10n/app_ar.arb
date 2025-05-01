@@ -1,0 +1,26 @@
+{
+  "@@locale": "ar",
+  "appTitle": "تطبيق التشفير",
+  "encryptionType": "نوع التشفير:",
+  "encryptionSettings": "إعدادات التشفير:",
+  "caesar": "قيصر",
+  "vigenere": "فيجنير",
+  "shift": "إزاحة: {shift}",
+  "@shift": {
+    "placeholders": {
+      "shift": {
+        "type": "int"
+      }
+    }
+  },
+  "key": "المفتاح",
+  "enterKey": "أدخل المفتاح (مثال: \"KEYWORD\")",
+  "enterText": "أدخل النص:",
+  "writeTextHere": "اكتب النص هنا",
+  "encrypt": "تشفير",
+  "decrypt": "فك التشفير",
+  "output": "النتيجة",
+  "outputDisplayText": "ستظهر النتيجة هنا.",
+  "copy": "نسخ",
+  "copiedToClipboard": "تم النسخ إلى الحافظة بنجاح!"
+}

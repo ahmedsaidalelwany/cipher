@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../Manager/Bloc/cipher_bloc.dart';
 import '../../../Manager/Bloc/cipher_event.dart';
 import '../../../Manager/Bloc/cipher_state.dart';
+import '../../../l10n/l10n.dart';
 
 class Input extends StatelessWidget {
   const Input({Key? key}) : super(key: key);
@@ -18,17 +19,25 @@ class Input extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Enter Text:',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                Text(
+                  context.l10n.enterText,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 const SizedBox(height: 8),
                 TextField(
-                  decoration: const InputDecoration(
-                    hintText: 'Write your text here',
-                    border: OutlineInputBorder(),
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+
+fillColor: Colors.black,
+                    hintText: context.l10n.writeTextHere,
+                    border: const OutlineInputBorder(
+
+                    ),
                   ),
                   maxLines: 5,
+                  textAlign: TextAlign.start,
+                  textDirection: _getTextDirection(context),
                   onChanged: (value) {
                     context.read<CipherBloc>().add(
                       TextChanged(value),
@@ -48,9 +57,9 @@ class Input extends StatelessWidget {
                             ProcessText(true),
                           );
                         },
-                        child: const Text(
-                          'Encrypt',
-                          style: TextStyle(color: Colors.black),
+                        child: Text(
+                          context.l10n.encrypt,
+                          style: const TextStyle(color: Colors.black),
                         ),
                       ),
                     ),
@@ -64,9 +73,9 @@ class Input extends StatelessWidget {
                             ProcessText(false),
                           );
                         },
-                        child: const Text(
-                          'Decrypt',
-                          style: TextStyle(color: Colors.black),
+                        child: Text(
+                          context.l10n.decrypt,
+                          style: const TextStyle(color: Colors.black),
                         ),
                       ),
                     ),
@@ -78,5 +87,12 @@ class Input extends StatelessWidget {
         );
       },
     );
+  }
+
+  TextDirection _getTextDirection(BuildContext context) {
+    // Auto detect based on first entered character
+    // For simplicity, we'll base it on the current locale
+    final locale = Localizations.localeOf(context);
+    return locale.languageCode == 'ar' ? TextDirection.rtl : TextDirection.ltr;
   }
 }
